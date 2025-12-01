@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microcurrículo IoT - Pedagogía Revisada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2E7D32;  /* Verde - Enfoque educativo */
+            --secondary-color: #1565C0; /* Azul - Tecnología */
+            --accent-color: #FF9800;   /* Naranja - Práctica */
+            --warning-color: #D32F2F;  /* Rojo - Alerta pedagógica */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px; /* Más compacto para mejor foco */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* HEADER PEDAGÓGICO */
+        .pedagogical-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1B5E20 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid var(--accent-color);
+        }
+        
+        .pedagogical-header h1 {
+            font-size: 1.8rem; /* Más conciso */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pedagogical-focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        /* ALERTA PEDAGÓGICA */
+        .pedagogical-alert {
+            background-color: #FFF3E0;
+            border-left: 5px solid var(--accent-color);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .pedagogical-alert h3 {
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* TECNOLOGÍA CLAVE */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .tech-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            width: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* PROYECTO INTEGRADOR */
+        .integrated-project {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #0D47A1 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .project-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+        
+        .project-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: bold;
+        }
+        
+        /* MÓDULOS SIMPLIFICADOS */
+        .module-simple {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .module-header {
+            padding: 1.25rem;
+            background-color: #E8F5E9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .module-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .kdd-phase {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+        
+        .learning-objectives {
+            background-color: #E3F2FD;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        /* EVALUACIÓN AUTÉNTICA */
+        .authentic-assessment {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border: 2px dashed var(--primary-color);
+        }
+        
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .assessment-item {
+            background-color: #F1F8E9;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .tech-stack {
+                gap: 1rem;
+            }
+            
+            .tech-card {
+                width: 120px;
+                padding: 1rem;
+            }
+            
+            .project-timeline {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER PEDAGÓGICO -->
+        <header class="pedagogical-header">
+            <h1><i class="fas fa-graduation-cap"></i> IoT Industrial: Sensor → Dashboard con KDD</h1>
+            <p>Curso focalizado - Pedagogía por proyectos</p>
+            
+            <div class="pedagogical-focus">
+                <h3><i class="fas fa-bullseye"></i> ENFOQUE PEDAGÓGICO</h3>
+                <p><strong>Aprendizaje Centrado en 4 Tecnologías Clave:</strong> Dominio profundo antes de ampliar</p>
+                <p><strong>Metodología:</strong> KDD aplicada incrementalmente + Aprendizaje Basado en Proyectos</p>
+            </div>
+        </header>
+        
+        <!-- ALERTA DE ENFOQUE -->
+        <div class="pedagogical-alert">
+            <h3><i class="fas fa-exclamation-triangle"></i> REVISIÓN PEDAGÓGICA APLICADA</h3>
+            <p><strong>Problema identificado:</strong> Sobrecarga tecnológica (8+ herramientas) dispersa el aprendizaje.</p>
+            <p><strong>Solución:</strong> Foco en 4 tecnologías esenciales con aplicación práctica inmediata.</p>
+        </div>
+        
+        <!-- TECNOLOGÍAS CLAVE -->
+        <div class="tech-stack">
+            <div class="tech-card">
+                <div class="tech-icon"><i class="fas fa-microchip"></i></div>
+                <h4>Arduino</h4>
+                <p>Adquisición datos</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon"><i class="fab fa-python"></i></div>
+                <h4>Python</h4>
+                <p>Procesamiento ETL</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                <h4>PostgreSQL</h4>
+                <p>Almacenamiento</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon"><i class="fas fa-chart-line"></i></div>
+                <h4>Power BI</h4>
+                <p>Visualización</p>
+            </div>
+        </div>
+        
+        <!-- PROYECTO INTEGRADOR -->
+        <div class="integrated-project">
+            <h3><i class="fas fa-project-diagram"></i> PROYECTO INTEGRADOR: Sistema de Monitoreo Ambiental</h3>
+            <p>Proyecto incremental que integra todas las tecnologías aplicando KDD fase por fase.</p>
+            
+            <div class="project-timeline">
+                <div class="project-step">
+                    <div class="step-number">1</div>
+                    <p>Sensor Arduino (Temp/Humedad)</p>
+                </div>
+                <div class="project-step">
+                    <div class="step-number">2</div>
+                    <p>Python ETL a PostgreSQL</p>
+                </div>
+                <div class="project-step">
+                    <div class="step-number">3</div>
+                    <p>Dashboard Power BI</p>
+                </div>
+                <div class="project-step">
+                    <div class="step-number">4</div>
+                    <p>Alertas KDD</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MÓDULOS SIMPLIFICADOS -->
+        <div id="modulos">
+            <h2 style="color: var(--primary-color); margin: 2rem 0 1rem;"><i class="fas fa-layer-group"></i> MÓDULOS PEDAGÓGICOS (12 Sesiones)</h2>
+            
+            <!-- Módulo 1 -->
+            <div class="module-simple">
+                <div class="module-header" onclick="toggleModule(1)">
+                    <div class="module-title">
+                        Módulo 1: Sensores Arduino y Adquisición
+                        <span class="kdd-phase">KDD: Adquisición</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content" id="module-1" style="display: none; padding: 1.5rem;">
+                    <div class="learning-objectives">
+                        <strong><i class="fas fa-tasks"></i> Objetivo de Aprendizaje:</strong>
+                        <p>Implementar sistema Arduino para lectura confiable de sensores DHT22 y almacenamiento local.</p>
+                    </div>
+                    
+                    <h4><i class="fas fa-book"></i> Contenidos (4 horas):</h4>
+                    <ul style="margin: 1rem 0 1rem 1.5rem;">
+                        <li>Arquitectura básica Arduino para adquisición</li>
+                        <li>Sensor DHT22: conexión y calibración</li>
+                        <li>Lectura serial y almacenamiento en SD</li>
+                        <li>Protocolo básico de comunicación</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-flask"></i> Actividad Práctica:</h4>
+                    <p>Crear sistema que registre temperatura y humedad cada 5 minutos durante 24 horas.</p>
+                    
+                    <div style="background-color: #E8F5E9; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <strong>Entregable Pedagógico:</strong> Dataset CSV con 288 registros válidos
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 2 -->
+            <div class="module-simple">
+                <div class="module-header" onclick="toggleModule(2)">
+                    <div class="module-title">
+                        Módulo 2: Python como Puente ETL
+                        <span class="kdd-phase">KDD: Preprocesamiento</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content" id="module-2" style="display: none; padding: 1.5rem;">
+                    <div class="learning-objectives">
+                        <strong><i class="fas fa-tasks"></i> Objetivo de Aprendizaje:</strong>
+                        <p>Desarrollar script Python que lea datos seriales, los limpie y cargue a PostgreSQL.</p>
+                    </div>
+                    
+                    <h4><i class="fas fa-book"></i> Contenidos (4 horas):</h4>
+                    <ul style="margin: 1rem 0 1rem 1.5rem;">
+                        <li>PySerial para comunicación Arduino-Python</li>
+                        <li>Limpieza básica de datos: outliers y valores nulos</li>
+                        <li>Conexión Python-PostgreSQL con psycopg2</li>
+                        <li>Inserción eficiente de datos</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-flask"></i> Actividad Práctica:</h4>
+                    <p>Crear pipeline ETL que reciba datos en tiempo real y los almacene en PostgreSQL.</p>
+                    
+                    <div style="background-color: #E8F5E9; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <strong>Entregable Pedagógico:</strong> Script Python funcional + BD con datos en tiempo real
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 3 -->
+            <div class="module-simple">
+                <div class="module-header" onclick="toggleModule(3)">
+                    <div class="module-title">
+                        Módulo 3: PostgreSQL para Series Temporales
+                        <span class="kdd-phase">KDD: Almacenamiento</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content" id="module-3" style="display: none; padding: 1.5rem;">
+                    <div class="learning-objectives">
+                        <strong><i class="fas fa-tasks"></i> Objetivo de Aprendizaje:</strong>
+                        <p>Diseñar esquema PostgreSQL optimizado para series temporales IoT.</p>
+                    </div>
+                    
+                    <h4><i class="fas fa-book"></i> Contenidos (4 horas):</h4>
+                    <ul style="margin: 1rem 0 1rem 1.5rem;">
+                        <li>Diseño de tablas para datos sensoriales</li>
+                        <li>Índices para consultas temporales</li>
+                        <li>Consultas SQL para análisis básico</li>
+                        <li>Vistas materializadas para KPIs</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-flask"></i> Actividad Práctica:</h4>
+                    <p>Crear BD normalizada con tablas: sensores, lecturas, ubicaciones.</p>
+                    
+                    <div style="background-color: #E8F5E9; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <strong>Entregable Pedagógico:</strong> Esquema SQL + 3 consultas analíticas básicas
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 4 -->
+            <div class="module-simple">
+                <div class="module-header" onclick="toggleModule(4)">
+                    <div class="module-title">
+                        Módulo 4: Power BI para Visualización
+                        <span class="kdd-phase">KDD: Interpretación</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content" id="module-4" style="display: none; padding: 1.5rem;">
+                    <div class="learning-objectives">
+                        <strong><i class="fas fa-tasks"></i> Objetivo de Aprendizaje:</strong>
+                        <p>Crear dashboard Power BI conectado a PostgreSQL con KPIs relevantes.</p>
+                    </div>
+                    
+                    <h4><i class="fas fa-book"></i> Contenidos (4 horas):</h4>
+                    <ul style="margin: 1rem 0 1rem 1.5rem;">
+                        <li>Conexión Power BI - PostgreSQL</li>
+                        <li>DAX para cálculos temporales</li>
+                        <li>Visualizaciones para series temporales</li>
+                        <li>Alertas y umbrales visuales</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-flask"></i> Actividad Práctica:</h4>
+                    <p>Dashboard con: gráfico temporal, KPI actual, alertas, histórico 24h.</p>
+                    
+                    <div style="background-color: #E8F5E9; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <strong>Entregable Pedagógico:</strong> Dashboard Power BI funcional y documentado
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 5 -->
+            <div class="module-simple">
+                <div class="module-header" onclick="toggleModule(5)">
+                    <div class="module-title">
+                        Módulo 5: KDD Aplicada - Análisis
+                        <span class="kdd-phase">KDD: Minería</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content" id="module-5" style="display: none; padding: 1.5rem;">
+                    <div class="learning-objectives">
+                        <strong><i class="fas fa-tasks"></i> Objetivo de Aprendizaje:</strong>
+                        <p>Aplicar análisis KDD para detectar patrones y anomalías en los datos.</p>
+                    </div>
+                    
+                    <h4><i class="fas fa-book"></i> Contenidos (4 horas):</h4>
+                    <ul style="margin: 1rem 0 1rem 1.5rem;">
+                        <li>Análisis exploratorio en Python</li>
+                        <li>Detección de outliers estadísticos</li>
+                        <li>Patrones temporales básicos</li>
+                        <li>Integración resultados en Power BI</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-flask"></i> Actividad Práctica:</h4>
+                    <p>Script Python que analice datos históricos y genere reporte KDD.</p>
+                    
+                    <div style="background-color: #E8F5E9; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <strong>Entregable Pedagógico:</strong> Reporte KDD con 3 insights identificados
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 6 -->
+            <div class="module-simple">
+                <div class="module-header" onclick="toggleModule(6)">
+                    <div class="module-title">
+                        Módulo 6: Integración Final
+                        <span class="kdd-phase">KDD: Aplicación</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content" id="module-6" style="display: none; padding: 1.5rem;">
+                    <div class="learning-objectives">
+                        <strong><i class="fas fa-tasks"></i> Objetivo de Aprendizaje:</strong>
+                        <p>Integrar sistema completo Arduino → Python → PostgreSQL → Power BI.</p>
+                    </div>
+                    
+                    <h4><i class="fas fa-book"></i> Contenidos (4 horas):</h4>
+                    <ul style="margin: 1rem 0 1rem 1.5rem;">
+                        <li>Pruebas de integración</li>
+                        <li>Optimización del pipeline</li>
+                        <li>Documentación técnica</li>
+                        <li>Presentación de resultados</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-flask"></i> Actividad Práctica:</h4>
+                    <p>Demostración sistema funcionando con datos en tiempo real.</p>
+                    
+                    <div style="background-color: #E8F5E9; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <strong>Entregable Pedagógico:</strong> Sistema completo + Video demo 3 minutos
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EVALUACIÓN AUTÉNTICA -->
+        <div class="authentic-assessment">
+            <h3 style="color: var(--primary-color);"><i class="fas fa-clipboard-check"></i> EVALUACIÓN PEDAGÓGICA</h3>
+            <p>Evaluación basada en desempeño real y productos auténticos</p>
+            
+            <div class="assessment-grid">
+                <div class="assessment-item">
+                    <h4>30%</h4>
+                    <p>Proyecto incremental</p>
+                    <small>Entregables por módulo</small>
+                </div>
+                
+                <div class="assessment-item">
+                    <h4>40%</h4>
+                    <p>Sistema integrado final</p>
+                    <small>Funcionalidad completa</small>
+                </div>
+                
+                <div class="assessment-item">
+                    <h4>20%</h4>
+                    <p>Documentación técnica</p>
+                    <small>Reporte KDD + manual</small>
+                </div>
+                
+                <div class="assessment-item">
+                    <h4>10%</h4>
+                    <p>Presentación final</p>
+                    <small>Comunicación técnica</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PRINCIPIOS PEDAGÓGICOS -->
+        <div style="background-color: #F3E5F5; padding: 1.5rem; border-radius: 10px; margin-top: 2rem; border-left: 5px solid #7B1FA2;">
+            <h3 style="color: #7B1FA2;"><i class="fas fa-chalkboard-teacher"></i> PRINCIPIOS PEDAGÓGICOS APLICADOS</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background-color: white; padding: 1rem; border-radius: 8px;">
+                    <h4><i class="fas fa-ladder"></i> Andamiaje</h4>
+                    <p>Progresión incremental de complejidad</p>
+                </div>
+                
+                <div style="background-color: white; padding: 1rem; border-radius: 8px;">
+                    <h4><i class="fas fa-project-diagram"></i> Aprendizaje Significativo</h4>
+                    <p>Conexión con aplicación real</p>
+                </div>
+                
+                <div style="background-color: white; padding: 1rem; border-radius: 8px;">
+                    <h4><i class="fas fa-bullseye"></i> Foco Pedagógico</h4>
+                    <p>4 tecnologías, dominio profundo</p>
+                </div>
+                
+                <div style="background-color: white; padding: 1rem; border-radius: 8px;">
+                    <h4><i class="fas fa-sync-alt"></i> Metodología KDD</h4>
+                    <p>Aplicada fase por fase</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleModule(moduleNumber) {
+            const module = document.getElementById(`module-${moduleNumber}`);
+            const icon = module.previousElementSibling.querySelector('.fa-chevron-down, .fa-chevron-up');
+            
+            if (module.style.display === 'none' || module.style.display === '') {
+                module.style.display = 'block';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                module.style.display = 'none';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+        
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            // Abrir primer módulo por defecto
+            toggleModule(1);
+        });
+    </script>
+</body>
+</html>
